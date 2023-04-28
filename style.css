@@ -1,6 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
+    background-color: rgb(125, 125, 253);
 }
 .calculator {
     display: flex;
@@ -9,6 +10,8 @@ body {
     align-self: center;
     align-items: center;
     margin-top: 50px;
+    background-color: grey;
+    border-radius: 15px;
 }
 .display {
     outline: black solid 2px;
@@ -19,6 +22,8 @@ body {
     line-height: 70px;
     font-size: 40px;
     padding-right: 10px;
+    background-color: white;
+    border-radius: 10px;
 }
 .buttons {
     display: flex;
@@ -35,10 +40,36 @@ body {
 }
 button {
     flex: 1;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
 
 }
 
 #zero {
     flex: 2 1 42px;
     width: 500px;
+    background-color: white;
+}
+
+.number {
+    background-color: white;
+}
+
+#clear {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#equal {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.op {
+    background-color: rgb(199, 199, 199);
 }
