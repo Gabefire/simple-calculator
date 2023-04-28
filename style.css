@@ -52,7 +52,7 @@ button {
     background-color: white;
 }
 
-.number {
+.number, .decimal{
     background-color: white;
 }
 
