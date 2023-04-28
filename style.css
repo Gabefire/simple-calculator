@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+.calculator {
+    display: flex;
+    flex-direction: column;
+    outline: black solid 2px;
+    align-self: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.display {
+    outline: black solid 2px;
+    height:70px;
+    width: 440px;
+    margin: 25px;
+    text-align: end;
+    line-height: 70px;
+    font-size: 40px;
+    padding-right: 10px;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 275px;
+    gap: 10px;
+    margin: 25px;
+}
+.row {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+button {
+    flex: 1;
+
+}
+
+#zero {
+    flex: 2 1 42px;
+    width: 500px;
+}
