@@ -22,11 +22,13 @@ function multiplyNums (num1, num2) {
 }
 
 function getPercent () {
+    if (display.textContent === 'Error') {return;}
     finalNum = Number(display.textContent) / 100;
     display.textContent = finalNum
 }
 
 function getNegative () {
+    if (display.textContent === 'Error') {return;}
     finalNum = -1 * Number(display.textContent)
     display.textContent = finalNum
 }
@@ -57,17 +59,17 @@ function storeDisplayValue () {
 function clearButton () {
     document.getElementById(".").disabled = false
     if (num1 === "") {
-        display.textContent = "0";
+        display.textContent = "";
     } 
     else if (display.textContent === "0") {
         return;
     }
     else if (display.textContent === "") {
-        display.textContent = "0"
+        display.textContent = ""
         num1 = ""
     }
-    else if (num3 !== "") {
-        display.textContent = "0"
+    else if (num3 !== "" || display.textContent === "Error") {
+        display.textContent = ""
         num1 = ""
         num2 = ""
         num3 = ""
@@ -81,7 +83,7 @@ function clearButton () {
 
 function evaluateNums () { 
     if (num1 === "" || functionOp === "" || display.textContent === "" ||
-        num3 !== "") {return;}
+        num3 !== "" || display.textContent === 'Error') {return;}
     let num2 = Number(display.textContent)
     switch (functionOp) {
         case "add":
@@ -100,26 +102,29 @@ function evaluateNums () {
             num1 = display.textContent;
             break;
         case "divide":
-            num3 = divideNums(num1, num2);
-            display.textContent = num3;
-            num1 = display.textContent;
+            if (num2 === 0) {
+                display.textContent = "Error"
+            } else {num3 = divideNums(num1, num2);
+                    display.textContent = num3;
+                    num1 = display.textContent;}
             break;
     }
-
+    functionOp = ""
 }
 /* variable declarations */
 let num1 = ""
 let num2 = ""
 let num3 = ""
 let functionOp = ""  
-let displayStr = "0"
+let displayStr = ""
 
 /* display */
 let display = document.querySelector('.display')
 nums = document.querySelectorAll('.number')
-display.textContent = "0"
+display.textContent = ""
 nums.forEach((num) => {
     num.addEventListener('click', (e) => {
+    if (display.textContent === 'Error') {return;}
     if (display.textContent.length === 21) {return;}
     if (num3 !== "") {return;}
     if (num1 !== "" && displayStr.length === 0) {
@@ -144,6 +149,7 @@ equal.addEventListener("click", evaluateNums)
 let functions =  document.querySelectorAll(".op")
 functions.forEach((func) => {
     func.addEventListener ("click", function(event) {
+        if (display.textContent === 'Error' || functionOp !== "") {return;}
         functionOp = event.target.id
         displayStr = ""
         num3 = ""
