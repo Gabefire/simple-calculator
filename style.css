@@ -9,7 +9,7 @@ body {
     outline: black solid 2px;
     align-self: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 150px;
     background-color: grey;
     border-radius: 15px;
 }
@@ -45,8 +45,11 @@ button {
     font-weight: bold;
 
 }
+button:disabled {
+    pointer-events: none;
+}
 
-#zero {
+.zero {
     flex: 2 1 42px;
     width: 500px;
     background-color: white;
